@@ -1,4 +1,21 @@
-<p>
-  base-layout works!
-  <router-outlet></router-outlet>
-</p>
+<div fxLayout="column" fxFlexFill>
+  <md-sidenav-container fxFlexFill>
+      <md-sidenav #sidenav mode="over" align="start">
+          <h3 class="mat-title">Investment Management App</h3>
+      </md-sidenav>
+
+      <div class="main-content" fxLayout="column" fxFlexFill>
+        <md-toolbar color="primary">
+          <div class="title-nav-icon-container">
+          <button md-icon-button (click)="sidenav.toggle()">
+              <md-icon>menu</md-icon>
+          </button>
+          <span class="app-title mat-title">{{title}}</span>
+          </div>
+        </md-toolbar>
+        <div class="section-content" fxFlex="1 1 calc(100% - 64px)">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+  </md-sidenav-container>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { AuthService, SnackBarService } from '../../core/services';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -15,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private authService: AuthService,
     private snackBarService: SnackBarService
 
@@ -31,7 +34,9 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(() => {
-
+        this.router.navigate(['/dashboard'], {
+          replaceUrl: true
+        });
       }, (error) => {
         this.snackBarService.showSuccess('Some problem occurred. Please try again later.');
       });

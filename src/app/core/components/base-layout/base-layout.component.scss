@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+md-sidenav {
+  width: 250px;
+  padding: 15px;
+}
+
+.title-nav-icon-container {
+  display: flex;
+  align-items: center;
+
+  button[md-icon-button] {
+    margin-right: 15px;
+  }
+}
+
+.app-title {
+  margin: 0;
+}
+
+.main-content {
+  display: flex;
+
+  .section-content {
+    overflow: auto;
+  }
+}

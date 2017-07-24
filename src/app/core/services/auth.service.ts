@@ -5,7 +5,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class AuthService {
 
-  private loggedInUser: any;
+  private loggedInUser: any = {email: '', passowrd: ''};
 
   constructor() { }
 
