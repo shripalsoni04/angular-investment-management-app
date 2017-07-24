@@ -9,7 +9,6 @@
   <div class="table-container mat-elevation-z1">
     <md-table [dataSource]="dataSource">
       <ng-container *ngFor="let config of columnConfig" [cdkColumnDef]="config.id">
-
         <md-header-cell
             *cdkHeaderCellDef
             [ngClass]="'text-'+(config.align || 'left')"
@@ -49,75 +48,6 @@
           </ng-container>
         </ng-container>
       </ng-container>
-
-      <!-- <ng-container cdkColumnDef="fdNumber">
-        <md-header-cell *cdkHeaderCellDef> FD Number </md-header-cell>
-        <md-cell *cdkCellDef="let row">{{row.fdNumber}}</md-cell>
-      </ng-container>
-
-      <ng-container cdkColumnDef="bankName">
-        <md-header-cell *cdkHeaderCellDef> Bank </md-header-cell>
-        <md-cell *cdkCellDef="let row">{{row.bankName}}</md-cell>
-      </ng-container> -->
-
-      <!-- <ng-container cdkColumnDef="accountNo">
-        <md-header-cell *cdkHeaderCellDef> A/c No </md-header-cell>
-        <md-cell *cdkCellDef="let row">{{row.accountNo}}</md-cell>
-      </ng-container>
-
-      <ng-container cdkColumnDef="amount">
-        <md-header-cell
-            *cdkHeaderCellDef
-            class="text-right"
-            fxFlex="0 0 auto">Amount
-        </md-header-cell>
-        <md-cell
-            *cdkCellDef="let row"
-            class="text-right"
-            fxFlex="0 0 auto">{{row.amount}}
-        </md-cell>
-      </ng-container>
-
-      <ng-container cdkColumnDef="startDate">
-        <md-header-cell
-            *cdkHeaderCellDef
-            class="text-center"
-            fxFlex="0 0 100px">Start Date
-        </md-header-cell>
-        <md-cell
-            *cdkCellDef="let row"
-            class="text-center"
-            fxFlex="0 0 100px">{{row.startDate | date: 'dd/MM/yyyy'}}
-        </md-cell>
-      </ng-container>
-
-      <ng-container cdkColumnDef="endDate">
-        <md-header-cell
-            *cdkHeaderCellDef
-            class="text-center"
-            fxFlex="0 0 100px">End Date
-        </md-header-cell>
-        <md-cell
-            *cdkCellDef="let row"
-            class="text-center"
-            fxFlex="0 0 100px">{{row.endDate | date: 'dd/MM/yyyy'}}
-        </md-cell>
-      </ng-container>
-
-      <ng-container cdkColumnDef="isReinvest" >
-        <md-header-cell
-            *cdkHeaderCellDef
-            fxFlex="0 0 60px"
-            class="text-center">Re-invest
-        </md-header-cell>
-        <md-cell
-            *cdkCellDef="let row"
-            fxFlex="0 0 60px"
-            class="text-center">
-          <md-icon *ngIf="row.isReinvest">check</md-icon>
-        </md-cell>
-      </ng-container> -->
-
       <ng-container cdkColumnDef="actions">
         <md-header-cell
             *cdkHeaderCellDef
