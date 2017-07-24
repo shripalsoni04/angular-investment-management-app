@@ -1,3 +1,55 @@
-<p>
-  login works!
-</p>
+<div
+    fxLayout="column"
+    fxFill
+    fxLayoutAlign="center center">
+  <div class="login-container" fxLayout="column">
+    <h1
+        [ngClass.gt-xs]="'mat-display-1'"
+        [ngClass.xs]="'mat-headline'">Investment Management App</h1>
+     <form
+        #form="ngForm"
+        fxLayout="column"
+        fxLayoutGap="15px"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()">
+      <md-input-container  floatPlaceholder="never">
+        <input
+            mdInput
+            formControlName="email"
+            placeholder="Email">
+        <md-error *ngIf="loginForm.get('email').errors?.required">Please enter email.</md-error>
+        <md-error *ngIf="loginForm.get('email').errors?.pattern">Please enter valid email.</md-error>
+      </md-input-container>
+
+      <md-input-container  floatPlaceholder="never">
+        <input
+            mdInput
+            type="password"
+            formControlName="password"
+            placeholder="Password">
+        <md-error *ngIf="loginForm.get('password').errors?.required">Please enter password.</md-error>
+      </md-input-container>
+
+      <button
+          md-raised-button
+          color="accent"
+          type="subtmit">Login
+      </button>
+    </form>
+
+    <!-- Templater Driven Form -->
+    <!-- <form #form="ngForm">
+      <md-input-container  [floatPlaceholder]="never">
+        <input
+            name="email"
+            mdInput
+            ngModel
+            placeholder="Email"
+            #email="ngModel"
+            required>
+        <md-error *ngIf="email.errors?.required">Please enter email.</md-error>
+        <md-error *ngIf="email.errors?.pattern">Please enter valid email.</md-error>
+      </md-input-container>
+    </form>-->
+  </div>
+</div>
