@@ -21,6 +21,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'fixed-deposit',
+        loadChildren: './fixed-deposit/fixed-deposit.module#FixedDepositModule'
       }
     ]
   },
