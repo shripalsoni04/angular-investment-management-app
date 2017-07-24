@@ -1,0 +1,7 @@
+<div class="message-content-container {{type}}-snackbar">
+  <md-icon *ngIf="type === 'error'">error</md-icon>
+  <md-icon *ngIf="type === 'warning'">warning</md-icon>
+  <md-icon *ngIf="type === 'success'">check_circle</md-icon>
+  <md-icon *ngIf="type === 'info'">info</md-icon>
+  <span>{{message}}</span>
+</div>

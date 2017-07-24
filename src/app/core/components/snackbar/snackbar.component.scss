@@ -1,0 +1,33 @@
+.message-content-container {
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  md-icon {
+    margin-right: 15px;
+  }
+
+  &.error-snackbar {
+    md-icon {
+      color: #f44336;
+    }
+  }
+
+  &.warning-snackbar {
+    md-icon {
+      color: #8a6d3b;
+    }
+  }
+
+  &.success-snackbar {
+    md-icon {
+      color: #3c763d;
+    }
+  }
+
+  &.info-snackbar {
+    md-icon {
+      color: #31708f;
+    }
+  }
+}
