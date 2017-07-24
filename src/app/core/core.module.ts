@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MdSnackBarModule, MdIconModule, MdToolbarModule, MdSidenavModule, MdButtonModule } from '@angular/material';
+import { MdSnackBarModule, MdIconModule, MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AuthService, SnackBarService, AppTitleService } from './services';
@@ -19,7 +19,8 @@ import { SnackBarComponent } from './components/snackbar';
     FlexLayoutModule,
     MdToolbarModule,
     MdSidenavModule,
-    MdButtonModule
+    MdButtonModule,
+    MdListModule
   ],
   declarations: [
     NotFoundComponent,

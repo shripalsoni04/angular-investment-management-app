@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdSidenav } from '@angular/material';
 
 import { AppTitleService } from '../../services';
 
@@ -9,10 +11,17 @@ import { AppTitleService } from '../../services';
 })
 export class BaseLayoutComponent implements OnInit {
 
+  @ViewChild('sidenav') sidenav: MdSidenav;
   title: string;
 
+  links = [
+    { title: 'Dashboard', link: '/dashboard' },
+    { title: 'Fixed Deposit', link: '/fixed-deposit' },
+  ];
+
   constructor(
-    private appTitleService: AppTitleService
+    private appTitleService: AppTitleService,
+    private router: Router
   ) {
     this.appTitleService.title$.subscribe((title: string) => {
       this.title = title;
@@ -21,6 +30,11 @@ export class BaseLayoutComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  goToPage(link) {
+    this.router.navigate([link.link]);
+    this.sidenav.close();
   }
 
 }
