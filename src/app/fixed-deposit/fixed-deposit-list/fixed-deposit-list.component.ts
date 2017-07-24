@@ -22,7 +22,8 @@ export class FixedDepositListComponent implements OnInit {
     { id: 'amount', name: 'Amount', align: 'right', width: 'auto'},
     { id: 'startDate', name: 'Start Date', align: 'center', width: '100px'},
     { id: 'endDate', name: 'End Date', align: 'center', width: '100px'},
-    { id: 'isReinvest', name: 'Re-invest', align: 'center', width: '60px'}
+    { id: 'isReinvest', name: 'Re-invest', align: 'center', width: '60px'},
+    { id: 'actions', name: 'Actions', align: 'center', width: '90px'}
   ];
 
   constructor(
