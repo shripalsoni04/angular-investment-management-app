@@ -1,3 +1,148 @@
-<p>
-  fixed-deposit-list works!
-</p>
+<div fxLayout="column" fxFlexFill>
+  <md-toolbar>
+      <span>Total 3 Fixed Deposits</span>
+      <div fxFlex></div>
+      <div class="actions">
+        <button md-raised-button (click)="addFD()">Add</button>
+      </div>
+  </md-toolbar>
+  <div class="table-container mat-elevation-z1">
+    <md-table [dataSource]="dataSource">
+      <ng-container *ngFor="let config of columnConfig" [cdkColumnDef]="config.id">
+
+        <md-header-cell
+            *cdkHeaderCellDef
+            [ngClass]="'text-'+(config.align || 'left')"
+            [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">{{config.name}}
+        </md-header-cell>
+
+        <ng-container [ngSwitch]="config.id">
+          <ng-container *ngSwitchCase="'startDate'">
+            <md-cell
+                *cdkCellDef="let row"
+                [ngClass]="'text-'+(config.align || 'left')"
+                [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">
+              {{row.startDate | date: 'dd/MM/yyyy'}}
+            </md-cell>
+          </ng-container>
+          <ng-container *ngSwitchCase="'endDate'">
+            <md-cell
+                *cdkCellDef="let row"
+                [ngClass]="'text-'+(config.align || 'left')"
+                [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">
+              {{row.endDate | date: 'dd/MM/yyyy'}}
+            </md-cell>
+          </ng-container>
+          <ng-container *ngSwitchCase="'isReinvest'">
+            <md-cell
+                *cdkCellDef="let row"
+                [ngClass]="'text-'+(config.align || 'left')"
+                [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">
+              <md-icon *ngIf="row.isReinvest">check</md-icon>
+            </md-cell>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <md-cell
+            *cdkCellDef="let row"
+            [ngClass]="'text-'+(config.align || 'left')"
+            [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">{{row[config.id]}}</md-cell>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+      <!-- <ng-container cdkColumnDef="fdNumber">
+        <md-header-cell *cdkHeaderCellDef> FD Number </md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.fdNumber}}</md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="bankName">
+        <md-header-cell *cdkHeaderCellDef> Bank </md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.bankName}}</md-cell>
+      </ng-container> -->
+
+      <!-- <ng-container cdkColumnDef="accountNo">
+        <md-header-cell *cdkHeaderCellDef> A/c No </md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.accountNo}}</md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="amount">
+        <md-header-cell
+            *cdkHeaderCellDef
+            class="text-right"
+            fxFlex="0 0 auto">Amount
+        </md-header-cell>
+        <md-cell
+            *cdkCellDef="let row"
+            class="text-right"
+            fxFlex="0 0 auto">{{row.amount}}
+        </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="startDate">
+        <md-header-cell
+            *cdkHeaderCellDef
+            class="text-center"
+            fxFlex="0 0 100px">Start Date
+        </md-header-cell>
+        <md-cell
+            *cdkCellDef="let row"
+            class="text-center"
+            fxFlex="0 0 100px">{{row.startDate | date: 'dd/MM/yyyy'}}
+        </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="endDate">
+        <md-header-cell
+            *cdkHeaderCellDef
+            class="text-center"
+            fxFlex="0 0 100px">End Date
+        </md-header-cell>
+        <md-cell
+            *cdkCellDef="let row"
+            class="text-center"
+            fxFlex="0 0 100px">{{row.endDate | date: 'dd/MM/yyyy'}}
+        </md-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="isReinvest" >
+        <md-header-cell
+            *cdkHeaderCellDef
+            fxFlex="0 0 60px"
+            class="text-center">Re-invest
+        </md-header-cell>
+        <md-cell
+            *cdkCellDef="let row"
+            fxFlex="0 0 60px"
+            class="text-center">
+          <md-icon *ngIf="row.isReinvest">check</md-icon>
+        </md-cell>
+      </ng-container> -->
+
+      <ng-container cdkColumnDef="actions">
+        <md-header-cell
+            *cdkHeaderCellDef
+            fxFlex="0 0 90px"
+            class="text-center">Actions
+        </md-header-cell>
+        <md-cell
+            *cdkCellDef="let row"
+            fxFlex="0 0 90px"
+            class="text-center">
+          <button
+              md-icon-button
+              (click)="editFD()">
+            <md-icon class="md-18">mode_edit</md-icon>
+          </button>
+            <button
+                md-icon-button
+                (click)="deleteFD()">
+              <md-icon class="md-18">delete</md-icon>
+          </button>
+        </md-cell>
+      </ng-container>
+
+      <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+  </div>
+</div>

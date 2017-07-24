@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex: 1;
+  padding: 15px;
+}
+
+.mat-column-actions {
+  md-icon {
+    font-size: 18px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

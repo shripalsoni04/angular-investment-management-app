@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
@@ -10,16 +10,16 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CdkTableModule
   ],
   declarations: [],
   exports: [
     CommonModule,
-    BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CdkTableModule
   ]
 })
 export class SharedModule { }

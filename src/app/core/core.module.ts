@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MdSnackBarModule, MdIconModule, MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AuthService, SnackBarService, AppTitleService } from './services';
+import { AuthService, SnackBarService, AppTitleService, FixedDepositService } from './services';
 import { AppRouteGuard } from './route-guards';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BaseLayoutComponent } from './components/base-layout/base-layout.component';
@@ -32,6 +32,7 @@ import { SnackBarComponent } from './components/snackbar';
     AuthService,
     SnackBarService,
     AppTitleService,
+    FixedDepositService,
 
     // route guards
     AppRouteGuard
