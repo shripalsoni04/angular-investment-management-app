@@ -1,0 +1,27 @@
+.modal-xs, .modal-sm, .modal-md, .modal-lg, .modal-xl {
+  width: calc(100% - 60px);
+
+  .mat-dialog-container {
+    max-width: none;
+  }
+}
+
+.modal-xs {
+  max-width: 529px;
+}
+
+.modal-sm {
+  max-width: 899px;
+}
+
+.modal-md {
+  max-width: 1219px;
+}
+
+.modal-lg {
+  max-width: 1859px;
+}
+
+.modal-xl {
+  max-width: 4940px;
+}

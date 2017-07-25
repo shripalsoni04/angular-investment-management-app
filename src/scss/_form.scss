@@ -1,0 +1,36 @@
+.field-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  max-height: 100%;
+  box-sizing: border-box;
+
+  .field-container {
+    flex: 1 0 200px;
+    min-width: 200px;
+    padding: 15px;
+    box-sizing: border-box;
+
+
+    > *:first-child {
+      margin: 0;
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+}
+
+// Temporary Override to avoid issue of dropdown not aligned with other fields till it is resovled in angular material
+// library.
+md-select {
+  position: relative;
+  top: -2px;
+}
+
+.mat-select.ng-invalid.ng-touched,
+.mat-select:focus:not(.mat-select-disabled).mat-primary {
+  .mat-select-underline {
+    height: 2px !important;
+  }
+}
+
