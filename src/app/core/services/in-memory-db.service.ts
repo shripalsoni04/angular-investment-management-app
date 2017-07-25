@@ -38,8 +38,39 @@ export class InMemoryDBService implements InMemoryDbService {
         isReinvest: true
       }
     ];
+
+    const user = [
+      {
+        id: '1',
+        banks: [
+          {
+            id: '1',
+            name: 'Bank 1',
+            accounts: [
+              { accountNumber: '12123112412', accountName: 'Person 1' }
+            ]
+          },
+          {
+            id: '2',
+            name: 'Bank 2',
+            accounts: [
+              { accountNumber: '4421234121', accountName: 'Joint A/C Person 1 & 2' }
+            ]
+          },
+          {
+            id: '3',
+            name: 'Bank 3',
+            accounts: [
+              { accountNumber: '21231212', accountName: 'Person 1' }
+            ]
+          }
+        ]
+      }
+    ];
+
     return {
-      'fixed-deposits': fixedDeposit
+      'fixed-deposits': fixedDeposit,
+      'user': user
     };
   }
 }
