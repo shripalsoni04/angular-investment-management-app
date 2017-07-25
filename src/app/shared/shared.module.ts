@@ -1,25 +1,43 @@
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CdkTableModule } from '@angular/cdk';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
-import { CommonModule } from '@angular/common';
-
+import { BusyLoaderComponent } from './components';
+import { RestrictInputDirective } from './directives';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    ReactiveFormsModule,
+    MdNativeDateModule
   ],
-  declarations: [],
+  declarations: [
+    // Components
+    BusyLoaderComponent,
+
+    // Directives
+    RestrictInputDirective
+  ],
   exports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    ReactiveFormsModule,
+    MdNativeDateModule,
+
+    // Components
+    BusyLoaderComponent,
+
+    // Directives
+    RestrictInputDirective
   ]
 })
 export class SharedModule { }

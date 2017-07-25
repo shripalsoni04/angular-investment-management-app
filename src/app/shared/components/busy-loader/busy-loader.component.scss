@@ -1,0 +1,16 @@
+.busy-loader-container {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  min-height: 100%;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  md-progress-spinner {
+    width: 32px;
+    height: 32px;
+  }
+}
