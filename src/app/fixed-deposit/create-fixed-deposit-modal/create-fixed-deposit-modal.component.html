@@ -1,0 +1,123 @@
+<h1 mdDialogTitle>{{isEditMode ? 'Edit Fixed Deposit' : 'Add Fixed Deposit'}}</h1>
+
+<form #ngForm="ngForm" [formGroup]="form" (ngSubmit)="saveFD()">
+  <md-dialog-content>
+    <div class="field-row">
+      <div class="field-container">
+        <md-input-container>
+            <input
+              mdInput
+              formControlName="fdNumber"
+              type="text"
+              placeholder="FD Number*">
+              <md-error *ngIf="form?.get('fdNumber').hasError('required')">
+                Please enter FD Number.
+              </md-error>
+        </md-input-container>
+      </div>
+      <div class="field-container">
+        <md-select
+            formControlName="bank"
+            placeholder="Bank*"
+            [class.mat-select-invalid]="isErrorState(form?.get('bank'))">
+          <md-option>Select Bank</md-option>
+          <md-option
+              *ngFor="let bank of user?.banks"
+              [value]="bank.id">{{bank.name}}
+          </md-option>
+        </md-select>
+        <div class="mat-select-subscript-wrapper" *ngIf="isErrorState(form?.get('bank'))">
+          <div class="mat-select-error" *ngIf="form?.get('bank').hasError('required')">
+            Please selet bank.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field-container">
+        <md-select
+            formControlName="accountNo"
+            placeholder="Account Number*"
+            [class.mat-select-invalid]="isErrorState(form?.get('accountNo'))">
+          <md-option>Select Account Number</md-option>
+          <md-option
+              *ngFor="let account of lstAccounts"
+              [value]="account.accountNumber">{{account.accountNumber}}
+          </md-option>
+        </md-select>
+        <div class="mat-select-subscript-wrapper" *ngIf="isErrorState(form?.get('accountNo'))">
+          <div class="mat-select-error" *ngIf="form?.get('accountNo').hasError('required')">
+            Please selet Account Number.
+          </div>
+        </div>
+      </div>
+      <div class="field-container">
+        <md-input-container>
+            <input
+              mdInput
+              formControlName="amount"
+              placeholder="Amount*"
+              [restrictInput]="'number'">
+              <md-error *ngIf="form?.get('amount').hasError('required')">
+                Please enter Amount.
+              </md-error>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field-container">
+        <md-input-container>
+          <input
+            mdInput
+            readonly
+            formControlName="startDate"
+            placeholder="Start Date*"
+            [mdDatepicker]="startDatePickerRef"
+            [max]="form?.get('endDate').value"
+            (click)="startDatePickerRef.open()">
+          <button mdSuffix [mdDatepickerToggle]="startDatePickerRef"></button>
+        </md-input-container>
+        <md-datepicker #startDatePickerRef [startAt]="form?.get('startDate').value"></md-datepicker>
+      </div>
+      <div class="field-container">
+        <md-input-container>
+          <input
+            mdInput
+            readonly
+            formControlName="endDate"
+            placeholder="End Date*"
+            [mdDatepicker]="endDatePickerRef"
+            [min]="form?.get('startDate').value"
+            (click)="endDatePickerRef.open()">
+          <button mdSuffix [mdDatepickerToggle]="endDatePickerRef"></button>
+        </md-input-container>
+        <md-datepicker #endDatePickerRef [startAt]="form?.get('endDate').value"></md-datepicker>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field-container">
+        <md-checkbox
+            formControlName="reinvest"
+            color="primary">Re-investible
+        </md-checkbox>
+      </div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+      <button md-button mdDialogClose type="button">Cancel</button>
+      <button md-button type="submit">Save</button>
+  </md-dialog-actions>
+  <app-busy-loader [isBusy]="isBusy"></app-busy-loader>
+</form>
+
+
+<!-- Example of how to change min-width pf any field declaratively -->
+<!-- <div class="field-container" fxFlex="1 0 200px" fxFlex.gt-md="1 0 300px">
+  <md-input-container>
+      <input
+        mdInput
+        formControlName="fdNumber"
+        type="text"
+        placeholder="FD Number">
+  </md-input-container>
+</div> -->

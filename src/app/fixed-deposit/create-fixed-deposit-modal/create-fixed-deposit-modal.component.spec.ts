@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateFixedDepositComponent } from './create-fixed-deposit.component';
+import { FixedDepositModalComponent } from './fixed-deposit-modal.component';
 
-describe('CreateFixedDepositComponent', () => {
-  let component: CreateFixedDepositComponent;
-  let fixture: ComponentFixture<CreateFixedDepositComponent>;
+describe('FixedDepositModalComponent', () => {
+  let component: FixedDepositModalComponent;
+  let fixture: ComponentFixture<FixedDepositModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateFixedDepositComponent ]
+      declarations: [ FixedDepositModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateFixedDepositComponent);
+    fixture = TestBed.createComponent(FixedDepositModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

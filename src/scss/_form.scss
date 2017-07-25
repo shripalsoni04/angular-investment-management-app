@@ -4,12 +4,14 @@
   align-items: center;
   max-height: 100%;
   box-sizing: border-box;
+  margin: 0 -15px;
 
   .field-container {
     flex: 1 0 200px;
     min-width: 200px;
     padding: 15px;
     box-sizing: border-box;
+    position: relative;
 
 
     > *:first-child {
@@ -27,10 +29,35 @@ md-select {
   top: -2px;
 }
 
+.mat-select:not(.mat-select-disabled).mat-select-invalid {
+  .mat-select-trigger, .mat-select-arrow {
+    color: #f44336 !important;
+  }
+
+  .mat-select-underline {
+    background-color: #f44336 !important;
+  }
+}
+
 .mat-select.ng-invalid.ng-touched,
+.mat-select:not(.mat-select-disabled).mat-select-invalid,
 .mat-select:focus:not(.mat-select-disabled).mat-primary {
   .mat-select-underline {
     height: 2px !important;
   }
 }
 
+.mat-select {
+  + .mat-select-subscript-wrapper {
+    top: calc(100% - 1.42917em);
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    font-size: 75%;
+    margin-top: .60417em;
+
+    .mat-select-error {
+      color: #f44336;
+    }
+  }
+}
