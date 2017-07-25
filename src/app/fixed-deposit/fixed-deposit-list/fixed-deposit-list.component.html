@@ -1,6 +1,6 @@
 <div fxLayout="column" fxFlexFill>
   <md-toolbar>
-      <span>Total 3 Fixed Deposits</span>
+      <span>Total {{fdService.lstFixedDeposit$.getValue().length}} Fixed Deposits</span>
       <div fxFlex></div>
       <div class="actions">
         <button md-raised-button (click)="addFD()">Add</button>
@@ -57,12 +57,14 @@
                 [fxFlex]="config.width ? '0 0 '+config.width : 'grow'">
               <button
                   md-icon-button
-                  (click)="editFD()">
+                  mdTooltip="Edit"
+                  (click)="editFD(row)">
                 <md-icon class="md-18">mode_edit</md-icon>
               </button>
                 <button
                     md-icon-button
-                    (click)="deleteFD()">
+                    mdTooltip="Delete"
+                    (click)="deleteFD(row)">
                   <md-icon class="md-18">delete</md-icon>
               </button>
             </md-cell>
@@ -84,4 +86,5 @@
       <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
     </md-table>
   </div>
+  <app-busy-loader [isBusy]="isBusy"></app-busy-loader>
 </div>
