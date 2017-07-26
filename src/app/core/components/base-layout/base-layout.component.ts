@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdSidenav } from '@angular/material';
 
-import { AppTitleService } from '../../services';
+import { AppTitleService, AuthService } from '../../services';
 
 @Component({
   selector: 'app-base-layout',
@@ -17,10 +17,12 @@ export class BaseLayoutComponent implements OnInit {
   links = [
     { title: 'Dashboard', link: '/dashboard' },
     { title: 'Fixed Deposit', link: '/fixed-deposit' },
+    { title: 'Logout', link: '/login' },
   ];
 
   constructor(
     private appTitleService: AppTitleService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.appTitleService.title$.subscribe((title: string) => {
@@ -33,6 +35,9 @@ export class BaseLayoutComponent implements OnInit {
   }
 
   goToPage(link) {
+    if (link.title === 'Logout') {
+      this.authService.logout();
+    }
     this.router.navigate([link.link]);
     this.sidenav.close();
   }

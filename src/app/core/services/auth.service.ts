@@ -5,7 +5,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class AuthService {
 
-  private loggedInUser: any = {email: '', passowrd: ''};
+  private loggedInUser: any = { email: '', passowrd: '' };
 
   constructor() { }
 
@@ -18,5 +18,9 @@ export class AuthService {
 
   isLoggedIn() {
     return !!this.loggedInUser;
+  }
+
+  logout() {
+    this.loggedInUser = null;
   }
 }
